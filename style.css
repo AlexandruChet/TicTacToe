@@ -1,0 +1,99 @@
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #1e1e2f, #0d0d18);
+    font-family: "Permanent Marker", cursive;
+    color: #f5f5f5;
+}
+
+#gameContainer {
+    text-align: center;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6),
+                inset 0 0 15px rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(6px);
+}
+
+#cellContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 90px);
+    gap: 12px;
+    margin: 20px auto;
+    justify-content: center;
+}
+
+.cell {
+    width: 90px;
+    height: 90px;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(145deg, #2b2b44, #1a1a2b);
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5),
+                -4px -4px 12px rgba(255, 255, 255, 0.05);
+    font-size: 55px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.cell:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.3);
+}
+
+.cell.filled {
+    animation: pop 0.3s ease forwards;
+}
+
+.cell.x {
+    color: #ff4c4c;
+    text-shadow: 0 0 12px rgba(255, 76, 76, 0.8),
+                 0 0 22px rgba(255, 100, 100, 0.9);
+}
+
+.cell.o {
+    color: #4ca3ff;
+    text-shadow: 0 0 12px rgba(76, 163, 255, 0.8),
+                 0 0 22px rgba(100, 180, 255, 0.9);
+}
+
+@keyframes pop {
+    0% { transform: scale(0.3) rotate(-20deg); opacity: 0; }
+    70% { transform: scale(1.2) rotate(10deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0); }
+}
+
+#restartBtn {
+    margin-top: 25px;
+    padding: 14px 35px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, #6a5acd, #836fff);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(106, 90, 205, 0.6);
+    transition: all 0.3s ease;
+}
+
+#restartBtn:hover {
+    background: linear-gradient(135deg, #7b68ee, #9370db);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(123, 104, 238, 0.8);
+}
+
+#restartBtn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
